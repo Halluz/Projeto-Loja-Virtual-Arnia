@@ -1,2 +1,3 @@
 # Projeto-Loja-Virtual-Arnia
- Protótipo de uma loja virtual de jogos.
+
+Protótipo de uma loja virtual de jogos. Foi criado duranto o Módulo 2 do Curso de programação fullstack da escola Arnia. Este projeto foi criado usando as bibliotecas React, ReactDOM e Styled-Components. Com o uso do React e as demais bibliotecas os elementos gráficos da interface são criados usando o paradigma de componentização. Os componentes são a peças gráficas que se repetem e podem ser reutilizadas, simplificando e otimizando o código, tanto para a manuteção quanto para a leitura, entendimento e organização. O React permite que a renderização dos componentes seja pontual e otimizada, gerando menor custo computacional.
