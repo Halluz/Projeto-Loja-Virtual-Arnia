@@ -1,10 +1,12 @@
-import Cabecalho from "./Cabecalho"
-import Rodape from "./Rodape"
-import TituloDaPagina from "./TituloDaPagina"
-import { Pagamento } from "./Pagamento"
+import { ImagemEstilo } from "../CatalogoDeJogos/estilo"
+import { TELAS } from "../../App"
+import Botao from "../Botao/"
+import { RecipienteTotal, RecipienteBotoesPagamento, RecipientePai, RecipienteFilho } from "./estilo"
 
-export default function PaginaPagamento({listaDeJogos, mudarPagina, paginaAtual}){
-  /*   const somaObjetoInicial = somaObjetoTotalInicial()
+
+
+export function Pagamento({listaDeJogos, mudarPagina}){
+    const somaObjetoInicial = somaObjetoTotalInicial()
     
     function somaObjetoTotalInicial(){
         let qtd = 0
@@ -14,21 +16,11 @@ export default function PaginaPagamento({listaDeJogos, mudarPagina, paginaAtual}
         }, 0)
         return {total: soma, quantidade: qtd}
     }
- */
+
 
     return (
         <>
-            <Cabecalho/>
-            <TituloDaPagina
-                tituloDaPagina = "Pagamento"
-                qtdItensSelecionados = {listaDeJogos.length}
-                trocarTela = {paginaAtual}
-            />
-
-            <Pagamento listaDeJogos={listaDeJogos} mudarPagina={mudarPagina}/>
-            {/* <Pagamento listaDeJogos={listaDeJogos} mudarPagina={mudarPagina} /> */}
-
-            {/* <RecipientePai>
+            <RecipientePai>
                 <div style={{fontSize: "18px"}}>
                     Produtos Escolhidos
                 </div>
@@ -50,8 +42,7 @@ export default function PaginaPagamento({listaDeJogos, mudarPagina, paginaAtual}
                 <Botao conteudo="Confirmar Compra" trocarPagina={() => {
                     window.alert("COMPRA REALIZADA COM SUCESSO!")
                     mudarPagina(TELAS.paginaProdutos)}}/>
-            </RecipienteBotoesPagamento> */}
-            <Rodape/>
+            </RecipienteBotoesPagamento>
         </>
     )
 }

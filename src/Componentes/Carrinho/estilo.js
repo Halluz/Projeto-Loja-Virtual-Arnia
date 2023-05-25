@@ -39,17 +39,3 @@ export const ImagemEstilo = styled.img`
     
 `
 
-export const RecipienteBotoesPagamento = styled.div`
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-`
-
-export const RecipientePai = styled.div`
-    padding: 30px;
-    box-sizing: border-box;
-`
-export const RecipienteFilho = styled.div`
-    display: flex;
-    gap: 30px;
-`
