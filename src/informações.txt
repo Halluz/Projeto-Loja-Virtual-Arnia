@@ -1,0 +1,47 @@
+https://www.figma.com/file/oBF2L0w5zV44s5AzloNCN8/Ecommerce-Arnia?type=design&node-id=1-3&t=vXAkZuts3bGWARiC-0
+
+projeto no Figma Loja Virtual - Comércio Eletrônico
+
+--------------------------------------------------------------------------------------------
+Observações:
+
+O useState é um hook do React, uma função especial que permite que componentes funcionais tenham estado interno. O estado, nesse contexto, refere-se aos dados que podem ser armazenados e manipulados dentro de um componente.
+
+Ao usar o useState, você pode declarar uma variável de estado dentro de um componente e atribuir-lhe um valor inicial. O React rastreia automaticamente essa variável de estado e reage a quaisquer mudanças, atualizando o componente quando necessário.
+
+A sintaxe básica do useState é a seguinte:
+
+
+import React, { useState } from 'react';
+
+function MeuComponente() {
+  const [estado, setEstado] = useState(valorInicial);
+
+  // Restante do código do componente...
+}
+
+Nesse exemplo, estado é a variável de estado que armazenará o valor atual, e setEstado é uma função que permite atualizar esse valor. valorInicial é o valor inicial atribuído à variável de estado.
+
+Para acessar o valor do estado em qualquer parte do componente, você pode simplesmente usar a variável estado. Sempre que você quiser atualizar o estado, deve chamar a função setEstado e passar o novo valor como argumento. O React então atualiza automaticamente o estado e re-renderiza o componente, refletindo as alterações na interface do usuário.
+
+O useState pode ser utilizado várias vezes em um único componente para criar diferentes variáveis de estado. Isso permite que você gerencie múltiplos valores independentes dentro de um componente funcional.
+
+A função useState retorna sempre um vetor de duas posições, um destruct, no qual a primeira posição é a variável de estado e a segunda posição é a função que deve ser usada para alterar o estado da variável.
+
+
+
+ERROS COMETIDOS:
+
+Eu tive dificuldades em passar de uma página para outra. Inicialmente eu fiz a chamada da função que troca de tela de maneira errada. Essa função é do useState. Assim que a págiana carregava ela ficava piscando a página de Produtos e a página de Carrinho alternadamente. Era uma loucura! 
+
+Isso aconteceu porque eu fiz a chamada da função que troca de página, "setTrocarPagina" , para ser executada em tempo de execução e não no momento do click. Essa função "setTrocarPagina" é passada para o componente PaginaProdutos como valor do atributo/prop "mudarPagina". Desta forma a função poderá ser usada no escopo do componente PaginaProdutos, e portanto, por seus componentes filhos. Porém, para usa-la, faz-se necessário utilizar-se do nome do atributo/prop, no caso, "mudarPágina", como se fosse a própria função "setTrocarPagina". Então, se eu quiser executar a função "setTrocarPagina(valor)" eu escreverei "mudarPagina(Valor)".
+
+Tá, mas onde entra o evento de click? Bem, na declaração do componente "Botao" eu coloco o atributo "onClick" recebendo como valor sua prop "trocarPagina". Esta prop é uma abstração que através dela poderemos passar também uma função. No caso, seria a prop "mudarPagina(valor)" que referencia a função "setTrocarPagina". Isso fica assim:
+ 
+<Botao trocarPagina={mudarPagina(TELAS.paginaCarrinho)} conteudo="Ir para o Carrinho" />
+
+Porém assim está errado, pois desta forma "mudarPagina()" está sendo executada no momento da leitura e não no evento de click. Para que seja no evento de click a função deve estar dentro de uma função callback que é a função do evento de click. Então a forma correta é:
+
+<Botao trocarPagina={ () => mudarPagina(TELAS.paginaCarrinho)} conteudo="Ir para o Carrinho" />
+
+Somente após essa alteração é que tudo funcionou corretamente.
